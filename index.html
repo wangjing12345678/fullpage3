@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title></title>
+<link rel="stylesheet" href="css/jquery.fullPage.css">
+<link rel="stylesheet" href="css/style.css">
+<script src="js/jquery-1.8.3.min.js"></script>
+<script src="js/jquery-ui-1.10.3.min.js"></script>
+<script src="js/jquery.fullPage.min.js"></script>
+<script>
+$(document).ready(function() {
+	$.fn.fullpage({
+		slidesColor: ['#0075D1', '#C2E5FF', '#FDF6E1', '#E9E9E9', '#F3F3F3', '#F9F3DC'],
+		anchors: ['page1', 'page2', 'page3', 'page4', 'page5', 'page6'],
+		menu: '#menu',
+		afterRender: function(){
+			$('.screen-main span').each(function(){
+				var $rel = $(this).attr('rel');
+				var $arr = $rel.split(',');
+				$(this).animate({
+					left: $arr[2] + 'px',
+					top: $arr[3] + 'px'
+				}, 500);
+			});
+			$('.inner a').each(function(){
+				var $rel = $(this).attr('rel');
+				var $arr = $rel.split(',');
+				$(this).animate({
+					left: $arr[0] + 'px',
+					top: $arr[1] + 'px'
+				}, 500);
+			});
+		},
+		afterLoad: function(anchorLink, index){
+			if(index == 1){
+				$('.screen-main span').each(function(){
+					var $rel = $(this).attr('rel');
+					var $arr = $rel.split(',');
+					$(this).animate({
+						left: $arr[2] + 'px',
+						top: $arr[3] + 'px'
+					}, 500);
+				});
+			}
+			if(index == 2 || index == 3 || index == 4 || index == 5){
+				$('.inner').eq(index - 2).find('a').each(function(){
+					var $rel = $(this).attr('rel');
+					var $arr = $rel.split(',');
+					$(this).animate({
+						left: $arr[2] + 'px',
+						top: $arr[3] + 'px'
+					}, 500);
+				});
+			}
+			if(index == 6){
+				$('.zanzhu-con a').fadeIn(1000);
+			}
+		},
+		onLeave: function(index, direction){
+			if(index == 1){
+				$('.screen-main span').each(function(){
+					var $rel = $(this).attr('rel');
+					var $arr = $rel.split(',');
+					$(this).animate({
+						left: $arr[0] + 'px',
+						top: $arr[1] + 'px'
+					}, 500);
+				});
+			}
+			if(index == 2 || index == 3 || index == 4 || index == 5){
+				$('.inner').eq(index - 2).find('a').each(function(){
+					var $rel = $(this).attr('rel');
+					var $arr = $rel.split(',');
+					$(this).animate({
+						left: $arr[0] + 'px',
+						top: $arr[1] + 'px'
+					}, 500);
+				});
+			}
+			if(index == 6){
+				$('.zanzhu-con a').fadeOut(1000);
+			}
+		}
+	});
+});
+</script>
+</head>
+
+<body>
+
+<ul id="menu">
+	<li data-menuanchor="page1" class="active"><a href="#page1">个人主页</a></li>
+	<li data-menuanchor="page2"><a href="#page2">Photoshop</a></li>
+	<li data-menuanchor="page3"><a href="#page3">界面设计</a></li>
+	<li data-menuanchor="page4"><a href="#page4">交互设计</a></li>
+	<li data-menuanchor="page5"><a href="#page5">Javascript</a></li>
+	<li data-menuanchor="page6"><a href="#page6">常联系</a></li>
+</ul>
+
+<div class="section section1">
+	<div class="screen-main">
+		<span class="shi1"  rel="-501,-455,388,237">王</span>
+		<span class="shi2"  rel="1387,-359,387,237">晶</span>
+		<span class="shi3"  rel="-619,-359,326,380">Personal home page</span>
+		<span class="shi4"  rel="1295,-259,588,260">WangJing</span>
+		<span class="ji1"  rel="-328,-589,673,111"></span>
+		<span class="ji2"  rel="1648,-487,648,213"></span>
+		<span class="ji3"  rel="-244,-488,756,212"></span>
+		<span class="year2"  rel="1686,-213,686,487"></span>
+		<span class="year0"  rel="-266,-189,734,511"></span>
+		<span class="year1"  rel="1792,-210,792,490"></span>
+		<span class="year3"  rel="-173,-207,827,493"></span>
+		<span class="slogen"  rel="1462,-106,462,594"></span>
+	</div>
+</div>
+
+<div class="section">
+	<div class="science-inner inner">
+		<!-- <a class="stiteml st1" href="javascript:void(0)" rel="0,-350,0,7">网络机顶盒</a>
+		<a class="stiteml st2" href="javascript:void(0)" rel="0,-350,0,37">干细胞人造肉</a>
+		<a class="stiteml st3" href="javascript:void(0)" rel="0,-350,0,68">3D涂鸦笔</a> -->
+		<a class="stiteml st4" href="javascript:void(0)" rel="0,-350,-31,74">第一阶段</a>
+		<!-- <a class="stiteml st5" href="javascript:void(0)" rel="1010,116,554,116">测癌试纸</a>
+		<a class="stiteml st6" href="javascript:void(0)" rel="1010,146,554,146">辽宁号航空母舰</a> -->
+		<a class="stiteml st7" href="javascript:void(0)" rel="1010,163,507,163">第三阶段</a>
+		<!-- <a class="stiteml st8" href="javascript:void(0)" rel="1010,236,554,236">蛟龙号载人潜水器</a>
+		<a class="stitemr st9" href="javascript:void(0)" rel="-710,346,290,346">三亲婴儿</a>
+		<a class="stitemr st10" href="javascript:void(0)" rel="-710,376,290,376">网格细胞</a>
+		<a class="stitemr st11" href="javascript:void(0)" rel="-710,406,224,406">好奇号火星探测器</a> -->
+		<a class="stitemr st12" href="javascript:void(0)" rel="-710,433,120,433">第二阶段</a>
+		<!-- <a class="stiteml st13" href="javascript:void(0)" rel="761,1050,761,506">上帝粒子</a> -->
+		<a class="stiteml st14" href="javascript:void(0)" rel="761,1050,720,523">最后阶段</a>
+		<!-- <a class="stiteml st15" href="javascript:void(0)" rel="761,1050,761,587">ISON彗星</a>
+		<a class="stiteml st16" href="javascript:void(0)" rel="761,1050,761,622">玉兔号</a>
+		<a class="stiteml st17" href="javascript:void(0)" rel="761,1050,761,656">4G</a> -->
+		<a class="stimg1" href="javascript:void(0)" rel="0,-350,0,153"><img width="181" height="176" src="images/diyi.png"></a>
+		<a class="stimg2" href="javascript:void(0)" rel="980,2,220,2"><img width="276" height="317" src="images/dier.png"></a>
+		<a class="stimg3" href="javascript:void(0)" rel="-407,350,413,350"><img width="332" height="155" src="images/disan.png"></a>
+		<a class="stimg4" href="javascript:void(0)" rel="761,850,761,350"><img width="200" height="138" src="images/disi.png"></a>
+	</div>
+</div>
+
+<div class="section">
+	<div class="famous-inner inner">
+		<!-- <a class="faitemr fa1" href="javascript:void(0)"  rel="90,-180,90,68">龚爱爱</a>
+		<a class="faitemr fa2" href="javascript:void(0)" rel="90,-180,90,93">李某某</a>
+		<a class="faitemr fa3" href="javascript:void(0)" rel="0,-180,0,113">彭丽媛</a>
+		<a class="faiteml fa4" href="javascript:void(0)" rel="1280,203,235,203">撒切尔夫人</a>
+		<a class="faiteml fa5" href="javascript:void(0)" rel="1280,227,235,227">安吉丽娜•朱莉</a>
+		<a class="faiteml fa6" href="javascript:void(0)" rel="1080,290,235,290">雷政富</a> -->
+		<a class="faiteml fa7" href="javascript:void(0)" rel="-300,317,-80,317,">外卖APP</a>
+		<!-- <a class="faiteml fa8" href="javascript:void(0)" rel="-300,533,149,533">陈永洲</a>
+		<a class="faiteml fa9" href="javascript:void(0)" rel="-300,563,149,563">埃隆·马斯克</a>
+		<a class="faiteml fa10" href="javascript:void(0)" rel="-300,593,149,593">曼德拉</a>
+		<a class="faiteml fa11" href="javascript:void(0)" rel="1370,383,786,383">小黄人</a>
+		<a class="faiteml fa12" href="javascript:void(0)" rel="1370,450,786,450">薄熙来</a>
+		<a class="faiteml fa13" href="javascript:void(0)" rel="1370,480,786,480">薛蛮子</a>
+		<a class="faiteml fa14" href="javascript:void(0)" rel="1370,510,786,510">夏俊峰</a>
+		<a class="faiteml fa15" href="javascript:void(0)" rel="1370,540,786,540">万爱花</a> -->
+		<a class="faimg1" href="javascript:void(0)" rel="200,-180,150,10"><img width="200" height="385" src="images/jiesi.png"></a>
+		<a class="faimg2" href="javascript:void(0)" rel="980,77,650,10"><img width="200" height="385" src="images/jiesan.png"></a>
+		
+		<a class="faimg4" href="javascript:void(0)" rel="-300,387,400,10"><img width="200" height="500" src="images/jiewu.png"></a>
+		<a class="faimg3" href="javascript:void(0)" rel="980,366,590,366"><img width="250" height="250" src="images/timg.gif"></a>
+	</div>
+</div>
+<div class="section">
+	<div class="social-inner inner">
+		<a class="soiteml so1" href="javascript:void(0)" rel="450,-175,250,51">外卖APP</a>
+		<!-- <a class="soiteml so2" href="javascript:void(0)" rel="450,-175,450,110">中国梦</a>
+		<a class="soiteml so3" href="javascript:void(0)" rel="450,-175,450,140">大黄鸭</a>
+		<a class="soiteml so4" href="javascript:void(0)" rel="980,228,450,228">光大“乌龙指”事件</a>
+		<a class="soiteml so5" href="javascript:void(0)" rel="980,258,450,258">上海自由贸易区</a>
+		<a class="soiteml so6" href="javascript:void(0)" rel="980,288,450,288">以房养老</a>
+		<a class="soiteml so7" href="javascript:void(0)" rel="980,340,450,340">爸爸去哪儿</a>
+		<a class="soiteml so8" href="javascript:void(0)" rel="980,363,450,363">十八届三中全会</a>
+		<a class="soiteml so9" href="javascript:void(0)" rel="980,428,450,428">美国政府停摆</a>
+		<a class="soiteml so10" href="javascript:void(0)" rel="-405,369,162,369">中国大妈</a>
+		<a class="soiteml so11" href="javascript:void(0)" rel="-405,434,162,434">中国汉字听写大会</a>
+		<a class="soiteml so12" href="javascript:void(0)" rel="-405,464,162,464">互联网金融</a> -->
+		<a class="soitemr so13" href="javascript:void(0)" rel="15,850,80,520">UI中国</a>
+	<!-- 	<a class="soitemr so14" href="javascript:void(0)" rel="376,1050,376,585">单独二胎</a>
+		<a class="soitemr so15" href="javascript:void(0)" rel="376,1050,357,612">中国式放假</a> -->
+		<a class="soimg1" href="javascript:void(0)" rel="156,-175,43,10"><img width="211" height="412" src="images/jiaohu.png"></a>
+		<!-- <a class="soimg2" href="javascript:void(0)" rel="-405,186,155,186"><img width="270" height="165" src="images/dama.jpg"></a> -->
+		<a class="soimg3" href="javascript:void(0)" rel="980,186,300,140"><img width="643" height="442" src="images/jiaohu2.png"></a>
+		<!-- <a class="soimg4" href="javascript:void(0)" rel="507,850,507,494"><img width="203" height="169" src="images/hengda.jpg"></a> -->
+	</div>
+</div>
+
+<div class="section">
+	<div class="net-inner inner">
+		<!-- <a class="netitemr net1" href="javascript:void(0)" rel="19,-240,19,56">剁手族</a>
+		<a class="netitemr net2" href="javascript:void(0)" rel="0,-240,086">喜大普奔</a>
+		<a class="netitemr net3" href="javascript:void(0)" rel="0,-240,116">累觉不爱</a>
+		<a class="netitemr net4" href="javascript:void(0)" rel="19,-240,19,146">陈欧体</a>
+		<a class="netitemr net5" href="javascript:void(0)" rel="-54,-240,-54,176">为什么放弃治疗</a>
+		<a class="netitemr net6" href="javascript:void(0)" rel="-32,-240,-32,206">大概8点20发</a>
+		<a class="netiteml net7" href="javascript:void(0)" rel="980,-1,449,-1">绿茶婊</a>
+		<a class="netiteml net8" href="javascript:void(0)" rel="980,28,449,28">人艰不拆</a> -->
+		<a class="netiteml net9" href="https://wangjing12345678.github.io/suxinhuayi/" rel="980,50,551,50">素馨花艺</a>
+		<!-- <a class="netiteml net10" href="javascript:void(0)"  rel="980,116,449,116">女汉子</a>
+		<a class="netiteml net11" a href="javascript:void(0)"  rel="980,146,449,146">注定孤独一生</a> -->
+		<a class="netiteml net12" a href="https://wangjing12345678.github.io/xiaomi/"  rel="980,184,449,184">小米商城</a>
+		<!-- <a class="netitemr net13" a href="javascript:void(0)"  rel="-435,261,265,261">高端大气上档次</a> -->
+		<a class="netitemr net14" a href="https://wangjing12345678.github.io/jingdong/"  rel="-435,291,103,250">京东</a>
+		<a class="netitemr net15" a href="https://wangjing12345678.github.io/tianqi/" rel="-435,351,8,351">天气APP</a>
+		<!-- <a class="netitemr net16" a href="javascript:void(0)"  rel="-435,428,63,428">内什么</a>
+		<a class="netitemr net17" a href="javascript:void(0)"  rel="-435,458,63,458">涨姿势</a> -->
+		<!-- <a class="netiteml net18" a href="javascript:void(0)" style="left: 449px; top: 578px;" rel="449,1140,449,578">上头条</a>
+		<a class="netiteml net19" a href="javascript:void(0)" style="left: 449px; top: 608px;" rel="449,1140,449,608">妈妈再打我一次</a>
+		<a class="netiteml net20" a href="javascript:void(0)" style="left: 449px; top: 638px;" rel="449,1140,449,638">因霾劝菜</a> -->
+		<a class="netimg1" a href="javascript:void(0)" rel="139,-240,139,57"><img width="223" height="190" src="images/jingdong.jpg"></a>
+		<a class="netimg2" a href="javascript:void(0)" rel="980,96,809,96"><img width="200" height="200" src="images/suxin.jpg"></a>
+		<a class="netimg3" a href="javascript:void(0)" rel="-435,431,100,431"><img width="300" height="174" src="images/tianqi.jpg"></a>
+		<a class="netimg4" a href="javascript:void(0)" rel="451,850,451,267"><img width="280" height="291" src="images/xiaomi.jpg"></a>
+	</div>
+</div>
+
+<div class="section">
+	<div class="zanzhu">
+		<h2>常联系</h2>
+		<div class="zanzhu-con">
+			<!-- <a href="javascript:void(0)">QQ:121897354</a> -->
+			<a href="javascript:void(0)"><img width="200" height="250" src="images/qq.jpg"></a>
+			<!-- <a href="javascript:void(0)">微信:wj121897354</a>  -->
+			<a href="javascript:void(0)"><img width="200" height=250" src="images/weixin.jpg"></a><br>
+			<a href="javascript:void(0)">电话:17835267926</a>
+			<!-- <a href="javascript:void(0)"></a>
+			<a href="javascript:void(0)"></a> -->
+			
+			
+			<!-- <a href="javascript:void(0)"><img width="190" height="76" src="images/heibeixinwen.png"></a>
+			<a href="javascript:void(0)"><img width="190" height="76" src="images/weibo.png"></a> -->
+		</div>
+		<!-- <div class="foot clearfix">
+			<p class="bd">如想投诉，请到<a target="_blank" href="javascript:void(0)">百度百科投诉中心</a>；如想提出意见、建议，请到<a target="_blank" href="javascript:void(0)">意见反馈</a>；想要了解您在百度百科的权利与义务，请查看<a target="_blank" href="javascript:void(0)">权利声明</a>。</p>
+			<p class="ft">&copy;2014Baidu<a target="_blank" href="javascript:void(0)">使用百度前必读</a>|<a target="_blank" href="javascript:void(0)">百科协议</a>|<a target="_blank" href="javascript:void(0)">百度百科合作平台</a></p>
+           
+		</div> -->
+	</div>
+</div>
+</body>
+</html>
